@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{fec2fd40-7700-49d4-9957-c1decfe8cd1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base">
+      <UniqueIdentifier>{32d2fa34-dc4e-49a2-985e-ed026b804ace}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{4f7abf9a-0c99-404f-9b39-58c2938b10ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{995fbd1f-75f3-401c-a595-66c233fea125}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Player">
+      <UniqueIdentifier>{29cd4720-90da-4e5d-af1e-78f078acb1a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Enemy">
+      <UniqueIdentifier>{c0324199-c3b9-49fd-b4a1-27ba507258e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base\Math">
+      <UniqueIdentifier>{3c39c115-8e1f-433b-8517-a857cf52d6ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Bullet">
+      <UniqueIdentifier>{1d1ccd1c-e753-4af2-9018-b984b5e63522}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base\Font">
+      <UniqueIdentifier>{f7f9cf03-5f9c-4d98-b7af-b7fe1780dcd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Camera">
+      <UniqueIdentifier>{8649e17c-9be3-49e0-bde8-d1cfed5a1fb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Scene">
+      <UniqueIdentifier>{bfdca610-9ebf-4b07-bfd8-49f3ca3cbd14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Enemy\List">
+      <UniqueIdentifier>{aa781da8-5ecb-4b4c-bba2-ada37430e403}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base\Audio">
+      <UniqueIdentifier>{85343184-530b-47a2-820b-fd1fa1056af4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base\Reader">
+      <UniqueIdentifier>{f48fac53-a589-4ad2-ad4b-10c665d6e266}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object">
+      <UniqueIdentifier>{32b30c61-366d-4afb-9b74-95eac6c7798d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Player\Weapon">
+      <UniqueIdentifier>{5731bd4b-8903-4068-a5e2-fa874aa9998d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base\UI">
+      <UniqueIdentifier>{5576ef15-954b-4ca0-b845-cf32659bad9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Effect">
+      <UniqueIdentifier>{5fbd1db3-64a7-4f4c-9484-acc4905f0d94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Effect\List">
+      <UniqueIdentifier>{00cbf4a0-6e97-49bc-8925-27b06901f546}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="program\Base\WinMain.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="program\pch.cpp" />
+    <ClCompile Include="program\Base\BaseWindow.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Base\Sprite2DPicture.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Base\ShaderResource.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Base\Actor.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Player\Player.cpp">
+      <Filter>Game\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Base\InputManager.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Base\BitmapResource.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Player\Weapon.cpp">
+      <Filter>Game\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Enemy\EnemyManager.cpp">
+      <Filter>Game\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Enemy\Enemy.cpp">
+      <Filter>Game\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Base\Collision.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Bullet\Bullet.cpp">
+      <Filter>Game\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Bullet\BulletManager.cpp">
+      <Filter>Game\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Player\PlayerBulletManager.cpp">
+      <Filter>Game\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Enemy\EnemyBulletManager.cpp">
+      <Filter>Game\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Base\Font\Character.cpp">
+      <Filter>Base\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Base\Font\FontSet.cpp">
+      <Filter>Base\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Base\Font\CharacterManager.cpp">
+      <Filter>Base\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Base\Font\Sprite2DString.cpp">
+      <Filter>Base\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Camera\Camera.cpp">
+      <Filter>Game\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Camera\SpriteByCamara.cpp">
+      <Filter>Game\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Player\Battery.cpp">
+      <Filter>Game\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Enemy\List\01_Helicopter.cpp">
+      <Filter>Game\Enemy\List</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Base\Math\AK_Math.cpp">
+      <Filter>Base\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Base\Audio\AudioManager.cpp">
+      <Filter>Base\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Base\Reader\BMP_Reader.cpp">
+      <Filter>Base\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Base\Reader\FontReader.cpp">
+      <Filter>Base\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Base\Reader\WAVFileReader.cpp">
+      <Filter>Base\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Enemy\List\02_FireworkLauncher.cpp">
+      <Filter>Game\Enemy\List</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Bullet\Firework.cpp">
+      <Filter>Game\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Object\Ground.cpp">
+      <Filter>Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Object\WallBarrier.cpp">
+      <Filter>Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Player\Weapon\Lifle.cpp">
+      <Filter>Game\Player\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Player\Weapon\Tester.cpp">
+      <Filter>Game\Player\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Base\UI\Button.cpp">
+      <Filter>Base\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Base\UI\ButtonPic.cpp">
+      <Filter>Base\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Object\ParticleButton.cpp">
+      <Filter>Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Enemy\List\03_AlarmHeli.cpp">
+      <Filter>Game\Enemy\List</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Effect\Effect.cpp">
+      <Filter>Game\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Effect\EffectManager.cpp">
+      <Filter>Game\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Effect\List\RotateEffect.cpp">
+      <Filter>Game\Effect\List</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Scene\Scene.cpp">
+      <Filter>Game\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Scene\TitleScene.cpp">
+      <Filter>Game\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\MyGame.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\LightManager.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Entity.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\CollisionManager.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Scene\MainScene.cpp">
+      <Filter>Game\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="program\Game\Scene\SceneOperator.cpp">
+      <Filter>Game\Scene</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="program\Shader\BasicPicture.hlsli">
+      <Filter>Shader</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="program\pch.h" />
+    <ClInclude Include="program\Base\BaseWindow.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\Singleton.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\WinMain.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\Sprite2DPicture.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\Random.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\ShaderResource.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\Actor.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="program\list.h" />
+    <ClInclude Include="program\Game\MyGame.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Player\Player.h">
+      <Filter>Game\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\InputManager.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\BitmapResource.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Player\Weapon.h">
+      <Filter>Game\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Enemy\EnemyManager.h">
+      <Filter>Game\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Enemy\Enemy.h">
+      <Filter>Game\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\Math\Point.h">
+      <Filter>Base\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\Math\Line.h">
+      <Filter>Base\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\Math\Capsule.h">
+      <Filter>Base\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\Math\Segment.h">
+      <Filter>Base\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\Collision.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Bullet\Bullet.h">
+      <Filter>Game\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Bullet\BulletManager.h">
+      <Filter>Game\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Player\PlayerBulletManager.h">
+      <Filter>Game\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Enemy\EnemyBulletManager.h">
+      <Filter>Game\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\Font\Character.h">
+      <Filter>Base\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\Font\FontSet.h">
+      <Filter>Base\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\Font\CharacterManager.h">
+      <Filter>Base\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\Font\Sprite2DString.h">
+      <Filter>Base\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Camera\Camera.h">
+      <Filter>Game\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Camera\SpriteByCamara.h">
+      <Filter>Game\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Player\Battery.h">
+      <Filter>Game\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Enemy\List\01_Helicopter.h">
+      <Filter>Game\Enemy\List</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\Math\AK_Math.h">
+      <Filter>Base\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\Audio\AudioManager.h">
+      <Filter>Base\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\Reader\BMP_Reader.h">
+      <Filter>Base\Reader</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\Reader\FontReader.h">
+      <Filter>Base\Reader</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\Reader\WAVFileReader.h">
+      <Filter>Base\Reader</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\Audio\StepTimer.h">
+      <Filter>Base\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Enemy\List\02_FireworkLauncher.h">
+      <Filter>Game\Enemy\List</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Bullet\Firework.h">
+      <Filter>Game\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Object\Ground.h">
+      <Filter>Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Object\WallBarrier.h">
+      <Filter>Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Player\Weapon\Lifle.h">
+      <Filter>Game\Player\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Player\Weapon\Tester.h">
+      <Filter>Game\Player\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\UI\Button.h">
+      <Filter>Base\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\UI\ButtonPic.h">
+      <Filter>Base\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Object\ParticleButton.h">
+      <Filter>Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Enemy\List\03_AlarmHeli.h">
+      <Filter>Game\Enemy\List</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Effect\Effect.h">
+      <Filter>Game\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Effect\EffectManager.h">
+      <Filter>Game\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Effect\List\RotateEffect.h">
+      <Filter>Game\Effect\List</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Scene\MainScene.h">
+      <Filter>Game\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Scene\Scene.h">
+      <Filter>Game\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Scene\TitleScene.h">
+      <Filter>Game\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\LightManager.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Entity.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\CollisionManager.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Game\Scene\SceneOperator.h">
+      <Filter>Game\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Resource\resource.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Data\Bitmap\icon.ico">
+      <Filter>Resource</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="program\Resource\2D-Game.rc">
+      <Filter>Resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

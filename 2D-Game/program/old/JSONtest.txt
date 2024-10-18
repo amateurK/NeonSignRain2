@@ -1,0 +1,22 @@
+
+
+		nlohmann::json test_json = {
+			{"Name","hoge"},
+			{"send_money","is_all_scam"},
+			{"num",334}
+		};
+		std::ofstream ofs;
+		ofs.open("test.json", std::ios::out);
+		ofs << test_json.dump() << std::endl;
+		ofs.close();
+
+
+		std::ifstream ifs("test.json");
+		if (ifs.good()) {
+			nlohmann::json json2;
+			ifs >> json2;
+			std::string name = json2["Name"];
+			std::string letter = json2["send_money"];
+			int hansin = json2["num"];
+			std::cout << name <<std::endl;
+		}
