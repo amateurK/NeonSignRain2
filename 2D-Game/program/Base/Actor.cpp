@@ -1,13 +1,23 @@
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// 
+// ゲーム内の全てのオブジェクトが継承するクラス
+// オブジェクトを木構造で処理するためのもの
+// 
+// 製作者	: amateurK
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 #include "Actor.h"
 
 namespace AK_Base {
 
+	//--------------------------------------------------------------------------------------
 	Actor::Actor(BaseWindow* const game, ActorStatus const status)
 		: m_Game(game)
 		, m_Status(status)
 	{
 		m_Children.clear();
 	}
+	//--------------------------------------------------------------------------------------
 	Actor::~Actor()
 	{
 		// 子アクターも消す
@@ -17,6 +27,7 @@ namespace AK_Base {
 		m_Children.clear();
 	}
 
+	//--------------------------------------------------------------------------------------
 	void Actor::Init()
 	{
 		for (auto child : m_Children) {
@@ -26,6 +37,7 @@ namespace AK_Base {
 		}
 	}
 
+	//--------------------------------------------------------------------------------------
 	void Actor::Move()
 	{
 		for (auto child : m_Children) {
@@ -36,6 +48,7 @@ namespace AK_Base {
 		}
 	}
 
+	//--------------------------------------------------------------------------------------
 	void Actor::Render()
 	{
 		for (auto child : m_Children) {
@@ -47,14 +60,14 @@ namespace AK_Base {
 
 	}
 
-	// 子の追加
+	//--------------------------------------------------------------------------------------
 	void Actor::AddChild(Actor* actor)
 	{
 		// 子として登録（木に接続）
 		m_Children.push_back(actor);
 	}
 
-	// Statusを確認して、DEAD状態のアクターを削除
+	//--------------------------------------------------------------------------------------
 	void Actor::CheckStatus()
 	{
 		// 自分が死んでいたら子をDEAD状態にする
@@ -83,8 +96,8 @@ namespace AK_Base {
 
 	}
 
-	// ACTIVE状態の子アクターの数を数える
-	int Actor::GetActionChildren()
+	//--------------------------------------------------------------------------------------
+	int Actor::GetActionChildren() const
 	{
 		int cnt = 0;
 		for (auto child : m_Children) {
@@ -95,8 +108,9 @@ namespace AK_Base {
 		}
 		return cnt;
 	}
-	// DEADではない子アクターの数を数える
-	int Actor::GetAliveChildren()
+
+	//--------------------------------------------------------------------------------------
+	int Actor::GetAliveChildren() const
 	{
 		int cnt = 0;
 		for (auto child : m_Children) {
@@ -107,7 +121,8 @@ namespace AK_Base {
 		}
 		return cnt;
 	}
-	// 特定のクラスを探す（Manager系を探す想定）
+
+	//--------------------------------------------------------------------------------------
 	// 参照渡しでない場合、child->Search(type)でエラー
 	// おそらく、コピーコンストラクタが削除されているため、コピーができない
 	Actor* const Actor::Search(const type_info& type)
@@ -124,20 +139,28 @@ namespace AK_Base {
 
 		return nullptr;
 	}
-	// 子アクターのリストを返す
-	const std::list<Actor*>* Actor::GetChildren()
+
+	//--------------------------------------------------------------------------------------
+	const std::list<Actor*>* Actor::GetChildren() const
 	{
 		return &m_Children;
 	}
 
-	// ステータスを取得
-	ActorStatus Actor::GetStatus()
+	//--------------------------------------------------------------------------------------
+	ActorStatus Actor::GetStatus() const
 	{
 		return m_Status;
 	}
-	// ステータスをセット
+
+	//--------------------------------------------------------------------------------------
 	void Actor::SetStatus(const ActorStatus status)
 	{
 		m_Status = status;
+	}
+
+	//--------------------------------------------------------------------------------------
+	void Actor::SetParent(Actor* const actor)
+	{
+		m_Parent = actor;
 	}
 }

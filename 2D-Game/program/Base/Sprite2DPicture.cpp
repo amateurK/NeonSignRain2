@@ -1,9 +1,18 @@
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// 
+// 2D画像用クラス
+// 板ポリゴンを使った描画関連のクラスはこれを継承して使用
+// 
+// 製作者	: amateurK
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 #include "Sprite2DPicture.h"
 #include "ShaderResource.h"
 
 
 namespace AK_Base {
 
+	//--------------------------------------------------------------------------------------
 	Sprite2DPicture::Sprite2DPicture(
 		BaseWindow* const game,
 		ShaderResource* resource
@@ -16,14 +25,18 @@ namespace AK_Base {
 	{
 	}
 
+	//--------------------------------------------------------------------------------------
 	Sprite2DPicture::~Sprite2DPicture()
 	{
 	}
 
+	//--------------------------------------------------------------------------------------
 	void Sprite2DPicture::Move()
 	{
 		Actor::Move();
 	}
+
+	//--------------------------------------------------------------------------------------
 	void Sprite2DPicture::Render()
 	{
 		// BaseWindowから必要なものをもらう
@@ -56,8 +69,7 @@ namespace AK_Base {
 		Actor::Render();
 	}
 
-
-	// world行列を計算
+	//--------------------------------------------------------------------------------------
 	DirectX::XMMATRIX Sprite2DPicture::CalcWorld()
 	{
 		return DirectX::XMMatrixIdentity();
@@ -86,7 +98,7 @@ namespace AK_Base {
 		//cb.World = world;
 	}
 
-	// UVMatrix行列を計算
+	//--------------------------------------------------------------------------------------
 	DirectX::XMMATRIX Sprite2DPicture::CalcUVMatrix()
 	{
 		return DirectX::XMMatrixIdentity();

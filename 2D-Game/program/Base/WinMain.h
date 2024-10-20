@@ -1,4 +1,13 @@
 #pragma once
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// 
+// Main関数
+// 
+// このプログラムは以下のチュートリアル内にあるプログラムを参考に作成しています。
+// https://github.com/walbourn/directx-sdk-samples/tree/main/Direct3D11Tutorials
+// 
+// 製作者	: amateurK
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 // Indicates to hybrid graphics systems to prefer the discrete part by default
 extern "C"
@@ -17,4 +26,4 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
 HRESULT CompileShaderFromFile(LPCWSTR, LPCSTR, LPCSTR, ID3DBlob**);
-
+// TODO : hlsliをhlslにして、事前にコンパイルするようにする

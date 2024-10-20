@@ -1,4 +1,11 @@
 #pragma once
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// 
+// 2D画像用クラス
+// 板ポリゴンを使った描画関連のクラスはこれを継承して使用
+// 
+// 製作者	: amateurK
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 #include "Actor.h"
 
 
@@ -6,41 +13,53 @@ namespace AK_Base {
 
 	class ShaderResource;
 
-	// 2D画像用クラス
-	// 板ポリゴンを使った描画関連のクラスはこれを継承してね
+	/// @brief 2D画像用クラス
 	__declspec(align(16))
 		class Sprite2DPicture : public Actor
 	{
 
 	protected:
 
-		// .hlsliに渡す行列
-		DirectX::XMMATRIX m_World;		// スクリーン上の座標とか
-		DirectX::XMMATRIX m_UVMatrix;	// UV座標関連
-		DirectX::XMFLOAT4A m_RGBABlend;		// RGBA補正用
+		// シェーダーに渡す変数
+
+		/// @brief ワールド座標
+		DirectX::XMMATRIX m_World;
+		/// @brief UV座標
+		DirectX::XMMATRIX m_UVMatrix;
+		/// @brief RGBA補正用
+		DirectX::XMFLOAT4A m_RGBABlend;
 
 		// 設定する変数
-		ShaderResource* m_ShaderResource;	// 画像データ
+
+		/// @brief 画像データ
+		ShaderResource* m_ShaderResource;
 
 
 
 	public:
 
 
-		// UV座標は別途設定する必要あり
+		/// @brief コンストラクタ
+		/// @param game ゲーム本体へのポインタ
+		/// @param resource 表示する画像データ
+		/// @details UV座標は別途設定する必要あり
 		Sprite2DPicture(
 			BaseWindow* const game,
 			ShaderResource* resource = nullptr
 		);
+		/// @brief デストラクタ
 		virtual ~Sprite2DPicture();
 
-		// Actorからoverride
+		/// @brief 更新
 		virtual void Move() override;
+		/// @brief 描画
 		virtual void Render() override;
 
-		// world行列を計算
+		/// @brief world行列を計算
+		/// @return World行列
 		virtual DirectX::XMMATRIX CalcWorld();
-		// UVMatrix行列を計算
+		/// @brief UVMatrix行列を計算
+		/// @return UV行列
 		virtual DirectX::XMMATRIX CalcUVMatrix();
 
 		// セッター

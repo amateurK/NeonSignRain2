@@ -1,8 +1,18 @@
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// 
+// デバイスやスワップチェインなどを作成するクラス
+// ゲームループやウィンドウへの処理もここ
+// 継承することを前提に作成
+// 
+// 製作者	: amateurK
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 #include "BaseWindow.h"
 #include "Actor.h"
 
 namespace AK_Base {
 
+	//--------------------------------------------------------------------------------------
 	BaseWindow::BaseWindow()
 		: m_PixelSizeX(0)
 		, m_PixelSizeY(0)
@@ -19,6 +29,7 @@ namespace AK_Base {
 		m_AudioManager = new AudioManager();
 	}
 
+	//--------------------------------------------------------------------------------------
 	BaseWindow::~BaseWindow()
 	{
 		delete m_RootActor;
@@ -26,7 +37,7 @@ namespace AK_Base {
 		this->CleanupDevice();
 	}
 
-	// ウィンドウクラスを登録し、ウィンドウを生成
+	//--------------------------------------------------------------------------------------
 	HRESULT BaseWindow::InitWindow(HINSTANCE hInstance, int nCmdShow)
 	{
 		// Register class
@@ -74,7 +85,7 @@ namespace AK_Base {
 		return S_OK;
 	}
 
-	// Direct3Dデバイスとスワップチェインの作成
+	//--------------------------------------------------------------------------------------
 	HRESULT BaseWindow::InitDevice()
 	{
 		HRESULT hr = S_OK;
@@ -337,8 +348,7 @@ namespace AK_Base {
 		return S_OK;
 	}
 
-	// 作成したデバイスの削除
-	// 2回呼び出すとなぜかデバッグ実行時のみエラーを吐きます
+	//--------------------------------------------------------------------------------------
 	void BaseWindow::CleanupDevice()
 	{
 		if (m_ImmediateContext) m_ImmediateContext->ClearState();
@@ -364,7 +374,7 @@ namespace AK_Base {
 #endif
 	}
 
-	// リソースの作成（ここではアクターへの指示だけ）
+	//--------------------------------------------------------------------------------------
 	HRESULT BaseWindow::InitResource()
 	{
 		// 全アクター初期化
@@ -375,7 +385,7 @@ namespace AK_Base {
 		return S_OK;
 	}
 
-	// ゲームループ
+	//--------------------------------------------------------------------------------------
 	void BaseWindow::GameLoop()
 	{
 		// 背景塗りつぶし（掃除）
@@ -394,7 +404,7 @@ namespace AK_Base {
 		m_SwapChain->Present(0, 0);
 	}
 
-	// カーソル移動制限(引数のtrue/falseでON/OFF)
+	//--------------------------------------------------------------------------------------
 	BOOL BaseWindow::CursorClipByWindow(bool s)
 	{
 		// ON
