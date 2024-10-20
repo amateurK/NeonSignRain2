@@ -2,6 +2,7 @@
 
 namespace AK_Base {
 
+	//--------------------------------------------------------------------------------------
 	AudioManager::AudioManager()
 		: m_XAudio2(nullptr)
 		, m_MasteringVoice(nullptr)
@@ -54,7 +55,7 @@ namespace AK_Base {
 		m_Thread = new std::thread(&AudioManager::Update, this);
 	}
 
-
+	//--------------------------------------------------------------------------------------
 	AudioManager::~AudioManager()
 	{
 		// スレッドの停止
@@ -85,7 +86,7 @@ namespace AK_Base {
 	}
 
 
-	// WaveFileの作成
+	//--------------------------------------------------------------------------------------
 	HRESULT AudioManager::OpenWave(uint8_t id, std::wstring filename)
 	{
 		HRESULT hr = S_OK;
@@ -166,8 +167,7 @@ namespace AK_Base {
 		return S_OK;
 	}
 
-
-	// 再生
+	//--------------------------------------------------------------------------------------
 	IXAudio2SourceVoice* AudioManager::Play(uint8_t id)
 	{
 		HRESULT hr;
@@ -210,7 +210,7 @@ namespace AK_Base {
 		return sourceVoice;
 	}
 
-
+	//--------------------------------------------------------------------------------------
 	IXAudio2SourceVoice* AudioManager::PlayBGM(uint8_t id)
 	{
 		HRESULT hr;
@@ -257,6 +257,7 @@ namespace AK_Base {
 
 	}
 
+	//--------------------------------------------------------------------------------------
 	void AudioManager::Stop(IXAudio2SourceVoice* voicePtr)
 	{
 		if (voicePtr != nullptr) {
@@ -265,6 +266,7 @@ namespace AK_Base {
 		}
 	}
 
+	//--------------------------------------------------------------------------------------
 	void AudioManager::StopBGM()
 	{
 		if (m_VoiceBGM != nullptr) {
@@ -274,9 +276,7 @@ namespace AK_Base {
 		}
 	}
 
-
-	// 更新
-	// マルチスレッドで動かすので、この関数はスレッドに動かしてもらう
+	//--------------------------------------------------------------------------------------
 	void AudioManager::Update()
 	{
 		m_Timer.SetFixedTimeStep(true);
@@ -309,33 +309,33 @@ namespace AK_Base {
 		}
 	}
 
-
-	// 音量セット
+	//--------------------------------------------------------------------------------------
 	void AudioManager::SetMasterVolume(float vol)
 	{
-		if (vol > XAUDIO2_MAX_VOLUME_LEVEL)
-			vol = XAUDIO2_MAX_VOLUME_LEVEL;
-		else if (vol < -XAUDIO2_MAX_VOLUME_LEVEL)
-			vol = -XAUDIO2_MAX_VOLUME_LEVEL;
+		LimitVolume(vol);
 
 		m_MasteringVoice->SetVolume(vol);
 	}
+	//--------------------------------------------------------------------------------------
 	void AudioManager::SetBGMVolume(float vol)
 	{
-		if (vol > XAUDIO2_MAX_VOLUME_LEVEL)
-			vol = XAUDIO2_MAX_VOLUME_LEVEL;
-		else if (vol < -XAUDIO2_MAX_VOLUME_LEVEL)
-			vol = -XAUDIO2_MAX_VOLUME_LEVEL;
+		LimitVolume(vol);
 
 		if(m_VoiceBGM)m_VoiceBGM->SetVolume(vol);
 	}
+	//--------------------------------------------------------------------------------------
 	void AudioManager::SetNextVolume(float vol)
+	{
+		LimitVolume(vol);
+
+		m_Volume = vol;
+	}
+	//--------------------------------------------------------------------------------------
+	void AudioManager::LimitVolume(float& vol)
 	{
 		if (vol > XAUDIO2_MAX_VOLUME_LEVEL)
 			vol = XAUDIO2_MAX_VOLUME_LEVEL;
 		else if (vol < -XAUDIO2_MAX_VOLUME_LEVEL)
 			vol = -XAUDIO2_MAX_VOLUME_LEVEL;
-
-		m_Volume = vol;
 	}
 }
