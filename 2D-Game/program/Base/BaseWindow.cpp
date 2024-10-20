@@ -330,6 +330,10 @@ namespace AK_Base {
 			0.0f, 0.0f, 0.0f, 1.0f,
 		};// 転置行列で転置済 : XMMatrixTranspose()をかけた状態
 
+		// FPSを固定する場合FixedTimeStepをtrueにする
+		m_StepTimer.SetFixedTimeStep(true);
+		m_StepTimer.SetTargetElapsedSeconds(1.0 / 60.0);
+
 		return S_OK;
 	}
 
@@ -377,12 +381,17 @@ namespace AK_Base {
 		// 背景塗りつぶし（掃除）
 		m_ImmediateContext->ClearRenderTargetView(m_RenderTargetView, DirectX::Colors::Black);
 
-		m_RootActor->Move();
-		m_RootActor->CheckStatus();
+		m_StepTimer.Tick([&]()
+			{
+				auto time = static_cast<float>(m_StepTimer.GetTotalSeconds());
+				auto elapsedTime = static_cast<float>(m_StepTimer.GetElapsedSeconds());
+				m_RootActor->Move();
+				m_RootActor->CheckStatus();
+			});
 		m_RootActor->Render();
 
 		// バックバッファと古い画面を入れ替え
-		m_SwapChain->Present(1, 0);
+		m_SwapChain->Present(0, 0);
 	}
 
 	// カーソル移動制限(引数のtrue/falseでON/OFF)

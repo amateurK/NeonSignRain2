@@ -1,5 +1,6 @@
 #pragma once
 #include "Audio\\AudioManager.h"
+#include "StepTimer.h"
 
 namespace AK_Base {
 
@@ -60,6 +61,7 @@ namespace AK_Base {
 		int m_PixelSizeX;	// ウィンドウの大きさ / Scaling
 		int m_PixelSizeY;
 
+		DX::StepTimer m_StepTimer;
 
 	public:
 		BaseWindow();

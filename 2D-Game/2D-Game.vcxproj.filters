@@ -328,9 +328,6 @@
     <ClInclude Include="program\Base\Reader\WAVFileReader.h">
       <Filter>Base\Reader</Filter>
     </ClInclude>
-    <ClInclude Include="program\Base\Audio\StepTimer.h">
-      <Filter>Base\Audio</Filter>
-    </ClInclude>
     <ClInclude Include="program\Game\Enemy\List\02_FireworkLauncher.h">
       <Filter>Game\Enemy\List</Filter>
     </ClInclude>
@@ -393,6 +390,9 @@
     </ClInclude>
     <ClInclude Include="program\Resource\resource.h">
       <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="program\Base\StepTimer.h">
+      <Filter>Base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
