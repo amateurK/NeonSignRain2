@@ -3,11 +3,7 @@
 
 namespace AK_Reader {
 
-	BMP_Reader::BMP_Reader() {}
-	BMP_Reader::~BMP_Reader() {}
-
-
-	// リトルエイディアンを入れ替え
+	//--------------------------------------------------------------------------------------
 	void BMP_Reader::ByteSwap(uint32_t& in)
 	{
 		in = (in << 24)
@@ -15,22 +11,23 @@ namespace AK_Reader {
 			| (in & 0x00FF0000) >> 8
 			| (in >> 24);
 	}
+	//--------------------------------------------------------------------------------------
 	void BMP_Reader::ByteSwap(uint16_t& in)
 	{
 		in = (in << 8)
 			| (in >> 8);
 	}
 
-
-	//Byte単位での読み取り
-	//ByteSwapはいらないみたい？どこかですでに入れ替えられているのだろうか...
+	//--------------------------------------------------------------------------------------
 	uint32_t BMP_Reader::GetByte4(std::ifstream& ifs)
 	{
 		uint32_t data;
 		ifs.read((char*)&data, 4);
+		// すでに入れ替わっている？謎だけど不要
 		//ByteSwap(data);	// Byte単位で入れ替わっているので修正
 		return data;
 	}
+	//--------------------------------------------------------------------------------------
 	uint16_t BMP_Reader::GetByte2(std::ifstream& ifs)
 	{
 		uint16_t data;
@@ -39,8 +36,7 @@ namespace AK_Reader {
 		return data;
 	}
 
-
-	// Bit単位での読み取り
+	//--------------------------------------------------------------------------------------
 	uint8_t BMP_Reader::GetBit(std::ifstream& ifs)
 	{
 		// 取り出し
@@ -53,14 +49,14 @@ namespace AK_Reader {
 		return data;
 	}
 
-	// 次の4Byteに移動
+	//--------------------------------------------------------------------------------------
 	void BMP_Reader::BitReset(std::ifstream& ifs)
 	{
 		m_NextBit = 0;
 		m_ByteData = GetByte4(ifs);
 	}
 
-
+	//--------------------------------------------------------------------------------------
 	bool BMP_Reader::Load(std::string filename, bool zeroAlpha)
 	{
 		// ファイル読み込み
