@@ -40,10 +40,14 @@ namespace AK_Base {
 			std::wstring fontName = L"",
 			std::wstring fontAddress = L""
 		);
+		/// @brief デストラクタ
 		virtual ~Character();
 
-		// ゲッター
+		/// @brief 文字の描画開始位置（オフセット）を取得
+		/// @return オフセット（負の数の可能性もある）
 		Point<int8_t> GetGlyphOrigin() { return m_GlyphOrigin; }
+		/// @brief 次の基準点への距離
+		/// @return 距離（x方向のみ）
 		int8_t GetCellIncX() { return m_CellIncX; }
 
 	};

@@ -1,13 +1,23 @@
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// 
+// 文字とフォントを管理するクラス
+// 文字を描画する際に使用
+// 
+// 製作者	: amateurK
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 #include "CharacterManager.h"
 
 namespace AK_Base {
 
+	//--------------------------------------------------------------------------------------
 	CharacterManager::CharacterManager(BaseWindow* const game)
 		: Actor(game)
 	{
 		m_FontData.clear();
 		AddFontSet(0);	// デフォルト値の追加
 	}
+	//--------------------------------------------------------------------------------------
 	CharacterManager::~CharacterManager()
 	{
 		for (auto p : m_FontData) {
@@ -16,7 +26,7 @@ namespace AK_Base {
 		m_FontData.clear();
 	}
 
-	// フォントセットの追加
+	//--------------------------------------------------------------------------------------
 	void CharacterManager::AddFontSet(
 		int id,
 		int size,
@@ -33,7 +43,7 @@ namespace AK_Base {
 		m_FontData[id] = fontset;
 	}
 
-	// フォントセットを取得
+	//--------------------------------------------------------------------------------------
 	FontSet* CharacterManager::GetFont(int id)
 	{
 		// みつからなかったらnullptrで返す

@@ -1,8 +1,16 @@
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// 
+// 文字を管理するクラス
+// 文字をレンダーするときに使用するID3D11ShaderResourceViewを持つ
+// 
+// 製作者	: amateurK
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 #include "Character.h"
 
 namespace AK_Base {
 
-
+	//--------------------------------------------------------------------------------------
 	Character::Character()
 		: ShaderResource()
 		, m_GlyphOrigin(0, 0)
@@ -10,6 +18,7 @@ namespace AK_Base {
 	{
 	}
 
+	//--------------------------------------------------------------------------------------
 	Character::Character(const wchar_t* chara, int size, int weight, UINT format, std::wstring fontName, std::wstring fontAddress)
 		: ShaderResource()
 	{
@@ -86,6 +95,7 @@ namespace AK_Base {
 
 	}
 
+	//--------------------------------------------------------------------------------------
 	Character::~Character()
 	{
 

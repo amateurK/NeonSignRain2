@@ -1,8 +1,15 @@
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// 
+// 文字列を描画するクラス
+// 
+// 製作者	: amateurK
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 #include "Sprite2DString.h"
 
 namespace AK_Base {
 
-
+	//--------------------------------------------------------------------------------------
 	Sprite2DString::Sprite2DString(BaseWindow* const game, Point<int> pos, int id, std::wstring str, Align align)
 		:Sprite2DPicture(game)
 		, m_String(L"")
@@ -26,12 +33,14 @@ namespace AK_Base {
 
 	}
 
+	//--------------------------------------------------------------------------------------
 	Sprite2DString::~Sprite2DString()
 	{
 		m_CharaString.clear();
 		m_String.clear();
 	}
 
+	//--------------------------------------------------------------------------------------
 	void Sprite2DString::Move()
 	{
 		// 文字列の更新が入ってたら再生成
@@ -57,6 +66,7 @@ namespace AK_Base {
 		}
 	}
 
+	//--------------------------------------------------------------------------------------
 	void Sprite2DString::Render()
 	{
 
@@ -104,7 +114,7 @@ namespace AK_Base {
 		Actor::Render();
 	}
 
-	// world行列を計算
+	//--------------------------------------------------------------------------------------
 	DirectX::XMMATRIX Sprite2DString::CalcWorld()
 	{
 		float offset = 0.0f;
@@ -128,14 +138,14 @@ namespace AK_Base {
 		};
 	}
 
-	// 文字列をセット
+	//--------------------------------------------------------------------------------------
 	void Sprite2DString::SetString(std::wstring str)
 	{
 		m_String = str;
 		m_IsUpdate = true;
 	}
 
-	// フォントをセット
+	//--------------------------------------------------------------------------------------
 	void Sprite2DString::SetFont(int id)
 	{
 		m_FontSet = m_CharacterManager->GetFont(id);
