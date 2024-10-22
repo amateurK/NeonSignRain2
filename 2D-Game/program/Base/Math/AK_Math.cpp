@@ -1,6 +1,6 @@
 #include "AK_Math.h"
 
-// 点に一番近い線分上の点
+//---------------------------------------------------------------------------------------------
 Point<float> AK_Math::CalcPointSegmentPos2D(const Point<float>& p, const Segment<float>& seg)
 {
 	// 点Pに一番近い線分AB上の点を測る
@@ -23,6 +23,7 @@ Point<float> AK_Math::CalcPointSegmentPos2D(const Point<float>& p, const Segment
 		return seg.GetPoint(r);
 	}
 }
+//---------------------------------------------------------------------------------------------
 Point<double> AK_Math::CalcPointSegmentPos2D(const Point<double>& p, const Segment<double>& seg)
 {
 	// 点Pに一番近い線分AB上の点を測る
@@ -46,21 +47,20 @@ Point<double> AK_Math::CalcPointSegmentPos2D(const Point<double>& p, const Segme
 	}
 }
 
-// 点と線分の最短距離
+//---------------------------------------------------------------------------------------------
 float AK_Math::CalcPointSegmentDistSq2D(const Point<float>& p, const Segment<float>& seg, Point<float>* const outPos)
 {
 	Point<float> pos = CalcPointSegmentPos2D(p, seg);
 	if (outPos) *outPos = pos;
 	return p.LengthSq(pos);
 }
+//---------------------------------------------------------------------------------------------
 double AK_Math::CalcPointSegmentDistSq2D(const Point<double>& p, const Segment<double>& seg)
 {
 	return p.LengthSq(CalcPointSegmentPos2D(p, seg));
 }
 
-// 線分と線分の衝突判定
-// 第3引数のポインタに交点の座標を返す
-// 参考 : http://marupeke296.com/COL_2D_No10_SegmentAndSegment.html
+//---------------------------------------------------------------------------------------------
 bool AK_Math::CalcSegmentSegmentCollide2D(const Segment<float>& seg1, const Segment<float>& seg2, Point<float>* const outPos)
 {
 	float Cross_12 = seg1.vec.Cross(seg2.vec);
@@ -81,7 +81,7 @@ bool AK_Math::CalcSegmentSegmentCollide2D(const Segment<float>& seg1, const Segm
 	return false;
 }
 
-// 線分と線分の最短距離
+//---------------------------------------------------------------------------------------------
 float AK_Math::CalcSegmentSegmentDistSq2D(const Segment<float>& seg1, const Segment<float>& seg2)
 {
 	// 線分同士で衝突してたら0
@@ -98,8 +98,7 @@ float AK_Math::CalcSegmentSegmentDistSq2D(const Segment<float>& seg1, const Segm
 	return dist;
 }
 
-// 線分と線分の最短距離
-// 第3、4引数に互いに一番近い点の座標を返す
+//---------------------------------------------------------------------------------------------
 float AK_Math::CalcSegmentSegmentDistSqPos2D(const Segment<float>& seg1, const Segment<float>& seg2, Point<float>* const outPos1, Point<float>* const outPos2)
 {
 	Point<float> temp;
@@ -140,7 +139,7 @@ float AK_Math::CalcSegmentSegmentDistSqPos2D(const Segment<float>& seg1, const S
 	return dist;
 }
 
-// カプセルとカプセルの衝突
+//---------------------------------------------------------------------------------------------
 bool AK_Math::CalcCapsuleCapsuleCollide2D(const Capsule<float>& cap1, const Capsule<float>& cap2)
 {
 	float dist = CalcSegmentSegmentDistSq2D(cap1.seg, cap2.seg);
@@ -148,7 +147,7 @@ bool AK_Math::CalcCapsuleCapsuleCollide2D(const Capsule<float>& cap1, const Caps
 	return (dist <= radius * radius);
 }
 
-// カプセルとカプセルの衝突（衝突位置を返す）
+//---------------------------------------------------------------------------------------------
 bool AK_Math::CalcCapsuleCapsulePos2D(const Capsule<float>& cap1, const Capsule<float>& cap2, Point<float>* const outPos, float* AofE)
 {
 	Point<float> pos1, pos2;
