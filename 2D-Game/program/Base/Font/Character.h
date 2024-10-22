@@ -1,22 +1,37 @@
 #pragma once
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// 
+// 文字を管理するクラス
+// 文字をレンダーするときに使用するID3D11ShaderResourceViewを持つ
+// 
+// 製作者	: amateurK
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 #include "..\\Base\\ShaderResource.h"
 #include "..\\Reader\\FontReader.h"
 
 namespace AK_Base {
 
-	// 文字を管理するクラス
-	// 文字をレンダーするのに使うID3D11ShaderResourceViewを持つ
-	// コンストラクタで読み込みをするので特にメソッドとかはいらない
+	/// @brief 文字を管理するクラス
 	class Character : public ShaderResource
 	{
 	private:
-		Point<int8_t> m_GlyphOrigin;	// 文字の描画開始位置（オフセット）
-		int8_t m_CellIncX;				// 次の基準点への距離
+		/// @brief 文字の描画開始位置（オフセット）
+		Point<int8_t> m_GlyphOrigin;
+		/// @brief 次の基準点への距離
+		int8_t m_CellIncX;
 
 		// フォントサイズとかは持たないので、これを管理するクラスにおまかせ
 
 	public:
+		/// @brief コンストラクタ
 		Character();
+		/// @brief コンストラクタ
+		/// @param chara 文字のUnicode
+		/// @param size 文字の大きさ
+		/// @param weight 文字の太さ
+		/// @param format 文字のフォーマット（何階調か）
+		/// @param fontName フォント名
+		/// @param fontAddress フォントファイルへのパス
 		Character(
 			const wchar_t* chara,	// Unicode
 			int size = 32,
